@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  server:
+    build: ./server
+    container_name: servidor
+    ports:
+      - "5100:5100"
+
+  client1:
+    build: ./client
+    depends_on:
+      - server
+
+  client2:
+    build: ./client
+    depends_on:
+      - server
+
+  client3:
+    build: ./client
+    depends_on:
+      - server
